@@ -1,6 +1,5 @@
 /**
- * 1. 基于队列的循环队列
- * 2. 基于链表的循环队列
+ * 1. 基于数组实现的循环队列
  *
  * 队空条件: head === tail
  * 队满条件: (tail+1)%n === head  // 环形队列需要解决队伍最后一位index + 1 === index为0 位置元素的矛盾，所以取余
@@ -36,53 +35,11 @@ class CircularQueueBasedOnArray {
   }
 
   display() {
-    console.log(`--------------当前队列: ${this.queue}---------------`);
+    console.log(`--------------Display the queue---------------`);
     let i = this.head;
     while (i !== this.tail) {
       console.log(this.queue[i]);
       i = (i + 1) % this.queue.length;
-    }
-  }
-}
-
-class Node {
-  constructor(ele) {
-    this.ele = ele;
-    this.next = null;
-  }
-}
-
-class CircularQueueBasedOnLinkedList {
-  constructor() {
-    this.head = null;
-    this.head = null;
-  }
-
-  enqueue(ele) {
-    // 队列为空时
-    if (this.head === null) {
-      this.head = new Node(ele);
-      this.tail = this.head;
-    } else {
-      // 队列未满时
-      if (this.tail.next === this.head) {
-        return -1;
-      } else {
-        // 队列已满时
-        this.tail.next = ele;
-        this.tail = this.tail.next;
-      }
-    }
-  }
-
-  dequeue() {
-    // 队列为空时
-    if (this.head === null) {
-      return -1;
-    } else {
-      const res = this.tail;
-      this.tail = this.tail.next;
-      return res;
     }
   }
 }
@@ -108,3 +65,10 @@ newCircularQueue.display()
 newCircularQueue.dequeue()
 newCircularQueue.dequeue()
 newCircularQueue.display()
+
+// 继续入队
+newCircularQueue.enqueue(2)
+newCircularQueue.enqueue(3)
+newCircularQueue.enqueue(3)
+newCircularQueue.display()
+
