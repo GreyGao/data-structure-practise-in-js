@@ -32,6 +32,30 @@ const bubbleSort = (list) => {
     return list;
   }
 
+
+// 插入排序
+const insertionSort = (list) => {
+  if (list.length <= 1) return list;
+  for (let n = 1; n < list.length; n++) {
+    const tmp = list[n];
+
+    for (let i = n - 1; i > 0; i--) {
+      // 待插入值比当前位置值大，并且比后一位小，待插入
+      if(tmp > list[i]) {
+
+      }
+    }
+
+  }
+
+}
+
+// 选择排序
+const selectionSort = (list) => {
+
+}
+
+
 const test = [4, 5, 6, 3, 2, 1];
 console.log('---------------bubble sort list-----------------');
 console.log(bubbleSort(test));
